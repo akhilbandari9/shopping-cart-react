@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Summary from './components/Summary';
+import CartItem from './components/CartItem';
+import {
+	calculateTotalNumberOfItems,
+	calculateTotalToPay,
+} from './utils/operations';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App({ items }) {
+	const [itemList, setItemList] = useState([]);
+
+	useEffect(() => {
+		setItemList(items);
+		//eslint-disable-next-line
+	}, []);
+
+	const updateItem = (updatedItem) => {
+		const updatedItems = itemList
+			.map((item) => (item.id === updatedItem.id ? updatedItem : item))
+			.filter((item) => item.quantity > 0);
+		setItemList(updatedItems);
+	};
+
+	const onClear = () => {
+		setItemList([]);
+	};
+
+	return (
+		<div className='container my-5'>
+			<div className='row'>
+				<div className='col-sm-8 offset-sm-2'>
+					<h2>Shopping Cart</h2>
+					<Summary
+						onClear={onClear}
+						numberOfItems={calculateTotalNumberOfItems(itemList)}
+						totalToPay={calculateTotalToPay(itemList)}
+					/>
+					{itemList.map((item) => (
+						<CartItem key={item.id} item={item} onChange={updateItem} />
+					))}
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default App;
