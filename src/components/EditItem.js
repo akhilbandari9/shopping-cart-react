@@ -24,7 +24,7 @@ const EditItem = ({ item, onCancel, onSaveQuantity }) => {
 	return (
 		<div>
 			<div className='text-left'>
-				Price : $ {calculateTotalPrice({ price: item.price, quantity })}
+				Price : ₹ {calculateTotalPrice({ price: item.price, quantity })}
 			</div>
 			<form
 				className='form-inline mt-2'

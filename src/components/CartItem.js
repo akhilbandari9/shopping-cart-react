@@ -31,7 +31,7 @@ const CartItem = ({ item, onChange }) => {
 			{!isEditing && (
 				<>
 					<div>
-						{item.quantity} x ${item.price} ={' '}
+						{item.quantity} x ₹{item.price} ={' '}
 						<strong>{calculateTotalPrice(item)}</strong>
 					</div>
 					<div className='btn-group mt-2' role='group' aria-label='Change'>

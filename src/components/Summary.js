@@ -8,7 +8,7 @@ const Summary = ({ numberOfItems, totalToPay, onClear }) => {
 				Number of Items : <strong>{numberOfItems}</strong>
 			</div>
 			<div className='mb-2'>
-				Total : <strong>${totalToPay}</strong>
+				Total : <strong>₹{totalToPay}</strong>
 			</div>
 			<Button
 				label='Clear Cart'

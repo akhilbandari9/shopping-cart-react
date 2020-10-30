@@ -7,19 +7,19 @@ const SHOPPING_CART_ITEMS = [
 	{
 		id: '1',
 		name: 'Eggs',
-		price: 2.99,
+		price: 5,
 		quantity: 1,
 	},
 	{
 		id: '2',
 		name: 'Milk',
-		price: 1.99,
+		price: 15,
 		quantity: 2,
 	},
 	{
 		id: '3',
-		name: 'Cheese',
-		price: 3.99,
+		name: 'Bread',
+		price: 30,
 		quantity: 3,
 	},
 ];
